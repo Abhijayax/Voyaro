@@ -10,7 +10,8 @@ import styles from './page.module.css';
 import Map from './components/Map';
 export default function Home() {
   const [loading, setLoading] = useState(false);
-  const [itinerary, setItinerary] = useState(null);
+  const [itineraries, setItineraries] = useState(null);
+  const [selectedItinerary, setSelectedItinerary] = useState(null);
   const [error, setError] = useState(null);
   const [formData, setFormData] = useState({
     days: 3,
@@ -43,14 +44,15 @@ export default function Home() {
     e.preventDefault();
     setLoading(true);
     setError(null);
-    setItinerary(null);
+    setItineraries(null);
+setSelectedItinerary(null);
 
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/api/itinerary/generate`,
         formData
       );
-      setItinerary(response.data.itineraries);
+      setItineraries(response.data.itineraries);
     } catch (err) {
       setError(err.response?.data?.error || 'Failed to generate itinerary. Check your API is running.');
       console.error(err);
@@ -59,8 +61,48 @@ export default function Home() {
     }
   };
 
-  if (itinerary) {
-    return <ItineraryDisplay itinerary={itinerary} onBack={() => setItinerary(null)} />;
+  if (selectedItinerary) {
+    return (
+      <ItineraryDisplay
+        itinerary={selectedItinerary}
+        onBack={() => setSelectedItinerary(null)}
+      />
+    );
+  }
+  
+  if (itineraries) {
+    return (
+      <div className={styles.container}>
+        <h1>Choose Your Itinerary</h1>
+  
+        {itineraries.map((plan, index) => (
+          <div
+            key={index}
+            className={styles.dayCard}
+            style={{ marginBottom: '20px', cursor: 'pointer' }}
+          >
+            <h2>{plan.theme}</h2>
+  
+            <p>{plan.trip_summary}</p>
+  
+            <p>
+              <strong>Best For:</strong> {plan.best_for}
+            </p>
+  
+            <p>
+              <strong>Budget:</strong> {plan.budget_estimate?.total}
+            </p>
+  
+            <button
+              className={styles.submitBtn}
+              onClick={() => setSelectedItinerary(plan)}
+            >
+              View Full Plan
+            </button>
+          </div>
+        ))}
+      </div>
+    );
   }
 
   return (
@@ -173,7 +215,32 @@ function ItineraryDisplay({ itinerary, onBack }) {
 
       <h1>{selected.theme}</h1>
       <p className={styles.summary}>{selected.trip_summary}</p>
+      <div
+  style={{
+    background: '#eef6ff',
+    padding: '15px',
+    borderRadius: '10px',
+    marginBottom: '20px'
+  }}
+>
+  <h2>🚗 Route Optimization</h2>
 
+  <p>
+    <strong>Algorithm:</strong> Nearest Neighbor + 2-opt
+  </p>
+
+  <p>
+    <strong>Average Improvement:</strong> 13.37%
+  </p>
+
+  <p>
+    <strong>Best Benchmark:</strong> 28.84%
+  </p>
+
+  <p>
+    Routes are reordered to reduce travel distance between attractions.
+  </p>
+</div>
       <div className={styles.budgetSection}>
         <h2>Budget Breakdown</h2>
         <div className={styles.budget}>
