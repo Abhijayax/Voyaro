@@ -1,0 +1,77 @@
+.container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+
+.heading1 { color: #2c3e50; margin-bottom: 10px; font-size: 2.5rem; }
+
+.subtitle { color: #7f8c8d; margin-bottom: 40px; }
+
+.form { background: #f8f9fa; padding: 30px; border-radius: 12px; margin-bottom: 40px; }
+
+.formGroup { margin-bottom: 25px; }
+
+.formLabel { display: block; margin-bottom: 8px; font-weight: 600; color: #2c3e50; }
+
+.formInput, .formSelect { width: 100%; padding: 12px; border: 2px solid #ecf0f1; border-radius: 6px; font-size: 1rem; box-sizing: border-box; }
+
+.formInput:focus, .formSelect:focus { outline: none; border-color: #3498db; }
+
+.checkboxGroup { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-top: 10px; }
+
+.checkbox { display: flex; align-items: center; cursor: pointer; }
+
+.checkboxInput { margin-right: 8px; width: auto; }
+
+.submitBtn { width: 100%; padding: 15px; background: #27ae60; color: white; border: none; border-radius: 6px; font-size: 1.1rem; font-weight: 600; cursor: pointer; }
+
+.submitBtn:hover { background: #229954; }
+
+.submitBtn:disabled { background: #95a5a6; }
+
+.error { background: #fadbd8; color: #c0392b; padding: 15px; border-radius: 6px; margin-top: 20px; border-left: 4px solid #c0392b; }
+
+.backBtn { background: #34495e; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-bottom: 30px; }
+
+.backBtn:hover { background: #2c3e50; }
+
+.summary { background: #e8f4f8; padding: 20px; border-radius: 8px; color: #1a5276; margin-bottom: 30px; }
+
+.budgetSection { margin-bottom: 40px; }
+
+.budgetHeading { color: #2c3e50; margin-bottom: 15px; font-size: 1.5rem; }
+
+.budget { background: #fff3cd; padding: 20px; border-radius: 8px; border-left: 4px solid #ffc107; }
+
+.budgetItem { padding: 8px 0; color: #856404; }
+
+.total { font-weight: 700; font-size: 1.2rem; border-top: 2px solid #ffc107; padding-top: 10px; margin-top: 10px; }
+
+.dayCard { background: white; border: 2px solid #ecf0f1; border-radius: 12px; padding: 25px; margin-bottom: 30px; }
+
+.dayHeading { color: #2980b9; margin-bottom: 20px; font-size: 1.4rem; }
+
+.slot { display: flex; gap: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #3498db; }
+
+.time { font-weight: 700; color: #2980b9; min-width: 90px; }
+
+.activityName { margin: 0 0 8px 0; color: #2c3e50; font-size: 1.1rem; font-weight: 600; }
+
+.duration { color: #7f8c8d; margin: 5px 0; font-size: 0.9rem; }
+
+.warning { background: #fadbd8; padding: 8px; border-radius: 4px; color: #c0392b; margin: 8px 0; font-size: 0.9rem; }
+
+.tip { color: #27ae60; margin: 8px 0; font-size: 0.9rem; }
+
+.cost { color: #e74c3c; font-weight: 600; margin: 8px 0; font-size: 0.95rem; }
+
+.hotelSection, .transportSection, .seasonalSection { background: white; border: 2px solid #ecf0f1; border-radius: 12px; padding: 25px; margin-bottom: 30px; }
+
+.sectionHeading { color: #2c3e50; margin-bottom: 15px; font-size: 1.3rem; }
+
+.hotel { background: #f8f9fa; padding: 20px; border-radius: 8px; }
+
+.hotelName { color: #2980b9; margin: 0 0 10px 0; font-size: 1.1rem; }
+
+.hotelText { margin: 8px 0; color: #2c3e50; line-height: 1.6; }
+
+.transportText, .seasonalText { color: #2c3e50; line-height: 1.8; font-size: 0.95rem; }
+
+@media (max-width: 768px) { .heading1 { font-size: 1.8rem; } .slot { flex-direction: column; } }
