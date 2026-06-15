@@ -108,9 +108,19 @@ setSelectedItinerary(null);
 
   return (
     <div className={styles.container}>
-      <h1>🏔️ Shimla Trip Planner</h1>
-      <p className={styles.subtitle}>AI-powered hyperlocal itineraries by a local, for travelers like you</p>
-
+      <div
+  style={{
+    padding: '40px',
+    borderRadius: '16px',
+    marginBottom: '30px',
+    background: 'linear-gradient(135deg,#0f172a,#1e293b)',
+    color: 'white'
+  }}
+>
+      <h1>✈️ Voyaro</h1>
+      <p>
+  AI-powered travel planning with local knowledge, route optimization, and smart recommendations.
+</p></div>
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.formGroup}>
           <label>How many days?</label>
