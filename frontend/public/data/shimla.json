@@ -1,0 +1,165 @@
+{
+    "spots": [
+      {
+        "id": "mall_road",
+        "name": "Mall Road",
+        "category": "sightseeing",
+        "description": "Main pedestrian street, heart of Shimla. Colonial architecture, shops, cafes.",
+        "duration_hours": 2,
+        "best_time": "evening",
+        "crowd": { "weekday": "medium", "weekend": "very_high", "peak_season": "very_high" },
+        "seasons": ["all"],
+        "budget_tier": "free",
+        "local_tip": "Go at 6am for photos with zero crowd. Avoid Saturday evenings completely.",
+        "lat": 31.1048, "lng": 77.1734
+      },
+      {
+        "id": "jakhu_temple",
+        "name": "Jakhu Temple",
+        "category": "temple",
+        "description": "Highest point near Shimla. Hanuman temple, giant statue, monkeys everywhere.",
+        "duration_hours": 2,
+        "best_time": "morning",
+        "crowd": { "weekday": "low", "weekend": "high", "peak_season": "high" },
+        "seasons": ["all"],
+        "budget_tier": "free",
+        "local_tip": "Carry a stick for monkeys. Go before 9am. Rope-way available if you don't want to trek.",
+        "lat": 31.1, "lng": 77.1833
+      },
+      {
+        "id": "kufri",
+        "name": "Kufri",
+        "category": "nature",
+        "description": "Hill station 16km from Shimla. Snow in winter, skiing Jan-March, horses year-round.",
+        "duration_hours": 4,
+        "best_time": "morning",
+        "crowd": { "weekday": "low", "weekend": "high", "peak_season": "very_high" },
+        "seasons": ["winter", "spring"],
+        "budget_tier": "medium",
+        "local_tip": "Avoid Dec 25 - Jan 5, road is literally a parking lot. Mid-Jan to Feb is the sweet spot for snow.",
+        "lat": 31.0988, "lng": 77.2609
+      },
+      {
+        "id": "ridge",
+        "name": "The Ridge",
+        "category": "sightseeing",
+        "description": "Large open space connected to Mall Road. Best panoramic views of snow peaks.",
+        "duration_hours": 1,
+        "best_time": "early_morning",
+        "crowd": { "weekday": "low", "weekend": "high", "peak_season": "high" },
+        "seasons": ["all"],
+        "budget_tier": "free",
+        "local_tip": "5:30am for sunrise with empty grounds and clear Himalaya views. Unbeatable.",
+        "lat": 31.1048, "lng": 77.1704
+      },
+      {
+        "id": "christ_church",
+        "name": "Christ Church",
+        "category": "heritage",
+        "description": "Second oldest church in North India. Neo-Gothic architecture, stained glass.",
+        "duration_hours": 1,
+        "best_time": "morning",
+        "crowd": { "weekday": "low", "weekend": "medium", "peak_season": "medium" },
+        "seasons": ["all"],
+        "budget_tier": "free",
+        "local_tip": "Open 10:30am-1pm and 2:15pm-5:30pm. Sunday service at 8am is worth attending.",
+        "lat": 31.1041, "lng": 77.1725
+      },
+      {
+        "id": "viceregal_lodge",
+        "name": "Viceregal Lodge (IIAS)",
+        "category": "heritage",
+        "description": "Former British Viceroy residence. Stunning architecture, museum inside, manicured gardens.",
+        "duration_hours": 2,
+        "best_time": "morning",
+        "crowd": { "weekday": "low", "weekend": "medium", "peak_season": "medium" },
+        "seasons": ["all"],
+        "budget_tier": "low",
+        "local_tip": "Entry fee ~₹50. Guides available. Gardens free to walk. Book tour in advance on weekends.",
+        "lat": 31.1093, "lng": 77.1651
+      },
+      {
+        "id": "chadwick_falls",
+        "name": "Chadwick Falls",
+        "category": "nature",
+        "description": "67m waterfall inside Glen forest. Beautiful trek through cedar and oak trees.",
+        "duration_hours": 3,
+        "best_time": "morning",
+        "crowd": { "weekday": "very_low", "weekend": "low", "peak_season": "medium" },
+        "seasons": ["monsoon", "post_monsoon"],
+        "budget_tier": "free",
+        "local_tip": "Best in July-August. Completely dry in winter. Path can be slippery after rain.",
+        "lat": 31.1266, "lng": 77.1542
+      },
+      {
+        "id": "tara_devi",
+        "name": "Tara Devi Temple",
+        "category": "temple",
+        "description": "Hilltop temple 11km from Shimla. Incredible panoramic valley views, very peaceful.",
+        "duration_hours": 2,
+        "best_time": "sunset",
+        "crowd": { "weekday": "very_low", "weekend": "low", "peak_season": "low" },
+        "seasons": ["all"],
+        "budget_tier": "free",
+        "local_tip": "Almost no tourists know this place. Sunset from here is better than anything on Mall Road.",
+        "lat": 31.0742, "lng": 77.0969
+      },
+      {
+        "id": "tattapani",
+        "name": "Tattapani Hot Springs",
+        "category": "nature",
+        "description": "Natural hot sulphur springs on Satluj river, 51km from Shimla. Rafting also available.",
+        "duration_hours": 5,
+        "best_time": "morning",
+        "crowd": { "weekday": "very_low", "weekend": "low", "peak_season": "medium" },
+        "seasons": ["winter", "spring"],
+        "budget_tier": "low",
+        "local_tip": "Best Nov-March when the cold makes the hot springs feel incredible. Full day trip.",
+        "lat": 31.3525, "lng": 76.9644
+      },
+      {
+        "id": "naldehra",
+        "name": "Naldehra Golf Course",
+        "category": "nature",
+        "description": "Oldest golf course in India at 2044m altitude. Stunning Himalaya backdrop.",
+        "duration_hours": 3,
+        "best_time": "morning",
+        "crowd": { "weekday": "very_low", "weekend": "low", "peak_season": "low" },
+        "seasons": ["spring", "summer", "autumn"],
+        "budget_tier": "medium",
+        "local_tip": "Even if you don't golf, the views walking the course are world-class. Horse riding nearby.",
+        "lat": 31.1842, "lng": 77.0789
+      }
+    ],
+    "hotels": {
+      "budget": [
+        { "name": "Youth Hostel Shimla", "price_range": "₹300-600/night", "contact": "+91-177-2652149", "area": "Potters Hill", "type": "hostel" },
+        { "name": "Hotel White", "price_range": "₹800-1200/night", "contact": "+91-177-2654526", "area": "Cart Road", "type": "guesthouse" },
+        { "name": "HPTDC Holiday Home", "price_range": "₹600-1000/night", "contact": "+91-177-2652651", "area": "Chotta Shimla", "type": "government" }
+      ],
+      "mid": [
+        { "name": "Hotel Combermere", "price_range": "₹2500-4000/night", "contact": "+91-177-2656316", "area": "Mall Road", "type": "hotel" },
+        { "name": "Woodville Palace", "price_range": "₹3000-5000/night", "contact": "+91-177-2623919", "area": "Battle of the Ridge", "type": "heritage" },
+        { "name": "Hotel Dreamland", "price_range": "₹1800-3000/night", "contact": "+91-177-2658765", "area": "Circular Road", "type": "hotel" }
+      ],
+      "luxury": [
+        { "name": "Wildflower Hall (Oberoi)", "price_range": "₹20000-35000/night", "contact": "+91-177-2648585", "area": "Mashobra", "type": "resort" },
+        { "name": "Chapslee Estate", "price_range": "₹15000-25000/night", "contact": "+91-177-2620544", "area": "Elysium Hill", "type": "heritage_estate" },
+        { "name": "The Oberoi Cecil", "price_range": "₹12000-20000/night", "contact": "+91-177-2804848", "area": "Chaura Maidan", "type": "luxury_hotel" }
+      ]
+    },
+    "transport": {
+      "to_shimla": [
+        { "from": "Delhi", "mode": "HRTC Bus (Volvo)", "duration": "10-11 hours", "price": "₹700-1200", "notes": "Overnight bus, arrives Shimla ISBT. Book on hrtc.gov.in" },
+        { "from": "Delhi", "mode": "Train + Toy Train", "duration": "6h train + 5h toy train", "price": "₹400-800 + ₹250-500", "notes": "Kalka Mail to Kalka, then UNESCO Kalka-Shimla toy train. Book months ahead." },
+        { "from": "Chandigarh", "mode": "HRTC Bus", "duration": "3-4 hours", "price": "₹200-400", "notes": "Frequent buses from ISBT Sector 43. Most convenient option." },
+        { "from": "Chandigarh", "mode": "Taxi/Cab", "duration": "2.5 hours", "price": "₹1500-2500", "notes": "Fixed price taxis available. Faster but pricey for solo." }
+      ],
+      "local": [
+        { "mode": "HRTC Local Bus", "price": "₹10-50", "notes": "Covers Kufri, Naldehra, Chail, Tattapani. Very cheap, slightly slow." },
+        { "mode": "Shared Taxi", "price": "₹50-150 per seat", "notes": "Faster than bus. Catch from Rivoli Bus Stand or Victory Tunnel." },
+        { "mode": "Private Taxi", "price": "₹1500-3000/day", "notes": "Best for families or 3+ people splitting cost. Negotiate the night before." },
+        { "mode": "Walking", "price": "Free", "notes": "Mall Road, Ridge, Christ Church, Jakhu all walkable from centre." }
+      ]
+    }
+  }

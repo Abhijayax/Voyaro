@@ -1,4 +1,12 @@
 'use client';
-export default function Map() {
-  return <div style={{ background: '#f0f0f0', padding: '40px', textAlign: 'center', borderRadius: '8px' }}>Map will show here (Leaflet integration)</div>;
+
+import dynamic from 'next/dynamic';
+
+const MapContent = dynamic(
+  () => import('./MapContent'),
+  { ssr: false }
+);
+
+export default function Map(props) {
+  return <MapContent {...props} />;
 }

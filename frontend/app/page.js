@@ -8,6 +8,7 @@ import axios from 'axios';
 import styles from './page.module.css';
 
 import Map from './components/Map';
+import shimlaData from '../../backend/data/shimla.json';
 export default function Home() {
   const [loading, setLoading] = useState(false);
   const [itineraries, setItineraries] = useState(null);
@@ -206,7 +207,16 @@ setSelectedItinerary(null);
 
 function ItineraryDisplay({ itinerary, onBack }) {
   const selected = Array.isArray(itinerary) ? itinerary[0] : itinerary;
-
+  const activities = selected.days.flatMap(day =>
+    day.schedule.map(slot => slot.activity)
+  );
+  
+  const matchingSpots = shimlaData.spots.filter(spot =>
+    activities.some(activity =>
+      activity.toLowerCase().includes(spot.name.toLowerCase()) ||
+      spot.name.toLowerCase().includes(activity.toLowerCase())
+    )
+  );
   return (
     <div className={styles.container}>
       <button onClick={onBack} className={styles.backBtn}>
@@ -217,28 +227,97 @@ function ItineraryDisplay({ itinerary, onBack }) {
       <p className={styles.summary}>{selected.trip_summary}</p>
       <div
   style={{
+    marginBottom: '30px'
+  }}
+>
+  <h2>📸 Places You'll Visit</h2>
+
+  <div
+    style={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+      gap: '20px'
+    }}
+  >
+    {matchingSpots.map((spot, idx) => (
+      <div
+        key={idx}
+        style={{
+          background: 'white',
+          borderRadius: '12px',
+          overflow: 'hidden',
+          boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
+        }}
+      >
+        <img
+          src={spot.images?.[0] || '/images/placeholder.jpg'}
+          alt={spot.name}
+          style={{
+            width: '100%',
+            height: '180px',
+            objectFit: 'cover'
+          }}
+        />
+
+        <div style={{ padding: '15px' }}>
+          <h3>{spot.name}</h3>
+
+          <p
+            style={{
+              fontSize: '0.9rem',
+              color: '#666'
+            }}
+          >
+            {spot.description}
+          </p>
+
+          <p>
+            📍 {spot.category}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+<div style={{ marginBottom: '30px' }}>
+  <h2>🗺️ Trip Route Map</h2>
+
+  <Map
+    day={{
+      schedule: matchingSpots.map(spot => ({
+        activity: spot.name,
+        time: ''
+      }))
+    }}
+    spots={matchingSpots}
+  />
+</div>
+<div
+  style={{
     background: '#eef6ff',
     padding: '15px',
     borderRadius: '10px',
     marginBottom: '20px'
   }}
 >
-  <h2>🚗 Route Optimization</h2>
+  <h2>🚗 Route Optimization Engine</h2>
 
   <p>
-    <strong>Algorithm:</strong> Nearest Neighbor + 2-opt
+    <strong>Algorithms:</strong> Nearest Neighbor + 2-opt Local Search
   </p>
 
   <p>
-    <strong>Average Improvement:</strong> 13.37%
+    Attractions are reordered to reduce overall travel distance
+    while preserving practical sightseeing flow.
   </p>
 
   <p>
-    <strong>Best Benchmark:</strong> 28.84%
+    Route distances are computed using the Haversine formula
+    using real latitude and longitude coordinates.
   </p>
 
   <p>
-    Routes are reordered to reduce travel distance between attractions.
+    <strong>Complexity:</strong> O(n²) route construction + O(n³) optimization
   </p>
 </div>
       <div className={styles.budgetSection}>

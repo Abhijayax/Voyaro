@@ -38,7 +38,41 @@ router.post('/generate', rateLimiter, async (req, res) => {
     const userPrompt = `
   You are a local Shimla travel expert.
   
-  Create a ${days}-day itinerary.
+ Create a ${days}-day itinerary.
+
+IMPORTANT RULES:
+
+1. Use ONLY attractions from the CURATED SHIMLA ATTRACTIONS list below.
+2. Mention attraction names EXACTLY as written in the list.
+3. Include at least ${Math.min(days * 3, 10)} unique attractions across the itinerary.
+4. Each day must contain 2-4 attractions from the curated list.
+5. Avoid generic activities such as:
+   - Explore local market
+   - Relax at hotel
+   - Cafe hopping
+   - Shopping
+   unless tied to a curated attraction.
+6. Every activity field should contain a real attraction name from the curated list.
+7. Spread attractions geographically to reduce travel distance.
+8. Prefer attractions matching the user's interests.
+9. Do not invent attractions that are not in the provided context.
+
+EXAMPLE:
+
+Day 1:
+- Mall Road
+- The Ridge
+- Christ Church
+
+Day 2:
+- Jakhu Temple
+- Viceregal Lodge (IIAS)
+- Kali Bari Temple
+
+Day 3:
+- Kufri
+- Green Valley
+- Naldehra Golf Course
   
   CURATED SHIMLA ATTRACTIONS:
   
@@ -75,7 +109,7 @@ router.post('/generate', rateLimiter, async (req, res) => {
         "schedule":[
           {
             "time":"8am",
-            "activity":"spot",
+            "activity":"EXACT attraction name from curated list",
             "duration":"2h",
             "crowd_warning":null,
             "local_tip":"tip",
