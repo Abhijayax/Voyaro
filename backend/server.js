@@ -19,7 +19,13 @@ app.use(express.json());
 app.use('/api/itinerary', itineraryRouter);
 app.use('/api/weather', weatherRouter);
 app.use('/api/crowd', crowdRouter);
+const shimlaData = require('./data/shimla.json');
 
+app.get('/api/spots', (req, res) => {
+  res.json({
+    spots: shimlaData.spots
+  });
+});
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
 });
