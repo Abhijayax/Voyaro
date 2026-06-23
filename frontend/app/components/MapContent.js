@@ -27,12 +27,38 @@ export default function MapContent({ day, spots }) {
   if (!coords.length) return <div style={{ padding: '20px', background: '#f0f0f0', borderRadius: '8px' }}>Map unavailable</div>;
 
   return (
-    <MapContainer center={coords[0]} zoom={13} scrollWheelZoom={false} style={{ height: '350px', width: '100%', borderRadius: '8px', marginTop: '15px', marginBottom: '15px' }}>
-      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="© OpenStreetMap" />
-      <Polyline positions={coords} color="#3498db" weight={3} opacity={0.7} />
-      {coords.map((c, i) => <Marker key={i} position={c} icon={L.icon({ iconUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCAzMiA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTYgMEMxMC40NzcgMCA2IDQuNDc3IDYgMTBDNiAxNi4zNzYgMTYgNDggMTYgNDhDMTYgNDggMjYgMTYuMzc2IDI2IDEwQzI2IDQuNDc3IDIxLjUyMyAwIDE2IDBaIiBmaWxsPSIjMzQ5OGRiIi8+PC9zdmc+', iconSize: [32, 48], iconAnchor: [16, 48] })}>
-        <Popup>{day.schedule[i]?.activity} ({day.schedule[i]?.time})</Popup>
-      </Marker>)}
-    </MapContainer>
+    <div className="animate-in" style={{ borderRadius: '40px', overflow: 'hidden', border: '2px solid var(--gold)', background: '#fff' }}>
+      <MapContainer 
+        center={coords[0]} 
+        zoom={14} 
+        scrollWheelZoom={false} 
+        style={{ height: '700px', width: '100%' }}
+      >
+        <TileLayer 
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" 
+          attribution="© OpenStreetMap" 
+        />
+        <Polyline positions={coords} color="var(--gold)" weight={8} opacity={1} dashArray="1, 15" lineCap="round" />
+        {coords.map((c, i) => (
+          <Marker 
+            key={i} 
+            position={c} 
+            icon={L.divIcon({
+               className: 'custom-div-icon',
+               html: `<div style="background-color: var(--gold); width: 14px; height: 14px; border-radius: 50%; border: 3px solid #000; box-shadow: 0 0 15px var(--gold);"></div>`,
+               iconSize: [20, 20],
+               iconAnchor: [10, 10]
+            })}
+          >
+            <Popup>
+              <div style={{ padding: '5px' }}>
+                <strong style={{ display: 'block', color: '#000', fontSize: '15px' }}>{day.schedule[i]?.activity || 'Stop'}</strong>
+                <span style={{ fontSize: '12px', color: '#666' }}>POINT {i + 1}</span>
+              </div>
+            </Popup>
+          </Marker>
+        ))}
+      </MapContainer>
+    </div>
   );
 }
