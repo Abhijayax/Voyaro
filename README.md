@@ -8,7 +8,7 @@ Built with Next.js, Express.js, Claude AI, Railway, and Vercel.
 
 ## Live Demo
 
-🔗 [Voyaro](https://voyaro-eta.vercel.app)
+🔗 [Voyaro](https://www.voyaroapp.in)
 
 ---
 
