@@ -84,3 +84,418 @@ button {
 button:hover {
   transform: translateY(-2px);
 }
+
+/* Responsive adjustments for Voyaro */
+
+/* Header / Navbar */
+@media (max-width: 1024px) {
+  .nav-header {
+    padding: 0 40px !important;
+    height: 80px !important;
+  }
+  .nav-menu {
+    gap: 30px !important;
+  }
+  .nav-spacer {
+    width: 80px !important;
+  }
+  body {
+    padding-top: 80px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-header {
+    padding: 0 20px !important;
+    height: 70px !important;
+  }
+  .nav-menu {
+    gap: 20px !important;
+    font-size: 11px !important;
+  }
+  .nav-spacer {
+    display: none !important;
+  }
+  body {
+    padding-top: 70px !important;
+  }
+  .nav-header a span {
+    font-size: 20px !important;
+  }
+}
+
+/* Footer */
+@media (max-width: 768px) {
+  .footer-container {
+    padding: 40px 20px !important;
+    margin-top: 60px !important;
+  }
+  .footer-inner {
+    flex-direction: column !important;
+    gap: 30px !important;
+  }
+  .footer-links-col {
+    gap: 40px !important;
+  }
+}
+
+/* Home / Planner Page */
+@media (max-width: 1024px) {
+  .form-container-wrapper {
+    padding: 0 40px !important;
+    margin-top: -120px !important;
+  }
+  .form-card {
+    padding: 80px 60px !important;
+    border-radius: 40px !important;
+  }
+  .planner-form {
+    gap: 60px 40px !important;
+  }
+  .planner-hero-title {
+    font-size: 5rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .planner-hero {
+    height: 60vh !important;
+  }
+  .planner-hero-title {
+    font-size: 3rem !important;
+    letter-spacing: -2px !important;
+  }
+  .planner-hero-subtitle {
+    font-size: 0.9rem !important;
+    letter-spacing: 2px !important;
+  }
+  .form-container-wrapper {
+    padding: 0 15px !important;
+    margin-top: -60px !important;
+    margin-bottom: 80px !important;
+  }
+  .form-card {
+    padding: 40px 20px !important;
+    border-radius: 24px !important;
+  }
+  .form-title {
+    font-size: 2.2rem !important;
+    margin-bottom: 10px !important;
+  }
+  .form-subtitle {
+    font-size: 0.9rem !important;
+    letter-spacing: 2px !important;
+  }
+  .planner-form {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+  .planner-form select, .planner-form input {
+    height: 60px !important;
+    font-size: 1rem !important;
+  }
+  .interests-grid {
+    gap: 12px !important;
+  }
+  .interests-grid label {
+    padding: 12px 20px !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 1px !important;
+  }
+  .form-submit-btn {
+    padding: 20px !important;
+    font-size: 1.1rem !important;
+    margin-top: 30px !important;
+  }
+}
+
+/* Results / Proposals Page */
+@media (max-width: 1024px) {
+  .results-container {
+    padding: 120px 40px !important;
+  }
+  .results-title {
+    font-size: 3.5rem !important;
+  }
+  .options-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 30px !important;
+  }
+  .option-card {
+    height: 600px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .results-container {
+    padding: 100px 20px !important;
+  }
+  .results-header {
+    margin-bottom: 50px !important;
+  }
+  .results-title {
+    font-size: 2.2rem !important;
+    letter-spacing: -1px !important;
+  }
+  .results-description {
+    font-size: 1rem !important;
+  }
+  .options-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+  .option-card {
+    height: 500px !important;
+  }
+  .option-card div {
+    padding: 30px !important;
+  }
+  .option-title {
+    font-size: 2rem !important;
+  }
+  .option-summary {
+    font-size: 0.95rem !important;
+    margin-bottom: 25px !important;
+  }
+  .option-budget {
+    font-size: 1.6rem !important;
+  }
+  .option-action-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 15px !important;
+  }
+  .option-discover {
+    font-size: 0.8rem !important;
+  }
+}
+
+/* Detailed Itinerary Page */
+@media (max-width: 1024px) {
+  .itinerary-header {
+    height: auto !important;
+    padding: 120px 40px 60px !important;
+    flex-direction: column-reverse !important;
+    align-items: flex-start !important;
+    gap: 40px !important;
+  }
+  .itinerary-header-content {
+    max-width: 100% !important;
+  }
+  .itinerary-header-title {
+    font-size: 5rem !important;
+  }
+  .itinerary-header-desc {
+    font-size: 1.4rem !important;
+  }
+  .itinerary-header-img {
+    position: relative !important;
+    width: 100% !important;
+    height: 350px !important;
+    opacity: 0.6 !important;
+    mask-image: none !important;
+    border-radius: 20px !important;
+  }
+  .landmarks-section, .cartographic-section, .anthology-section, .blueprint-section {
+    margin: 100px 0 !important;
+  }
+  .landmarks-title {
+    font-size: 3rem !important;
+    margin-bottom: 60px !important;
+  }
+  .landmarks-grid {
+    gap: 40px !important;
+  }
+  .landmark-card {
+    grid-column: 1 / 13 !important;
+    margin-top: 0 !important;
+  }
+  .cartographic-grid {
+    gap: 40px !important;
+  }
+  .cartographic-text {
+    grid-column: 1 / 13 !important;
+  }
+  .cartographic-map {
+    grid-column: 1 / 13 !important;
+    height: 400px !important;
+  }
+  .anthology-title {
+    font-size: 4rem !important;
+    margin-bottom: 80px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .itinerary-header {
+    padding: 100px 20px 40px !important;
+  }
+  .itinerary-header-title {
+    font-size: 3rem !important;
+    letter-spacing: -2px !important;
+  }
+  .itinerary-header-desc {
+    font-size: 1.1rem !important;
+  }
+  .itinerary-header-img {
+    height: 250px !important;
+  }
+  .itinerary-content-wrapper {
+    padding: 0 15px !important;
+  }
+  .landmarks-title {
+    font-size: 2.2rem !important;
+    margin-bottom: 40px !important;
+  }
+  .landmark-card {
+    flex-direction: column !important;
+    gap: 20px !important;
+    align-items: flex-start !important;
+  }
+  .landmark-img {
+    width: 100% !important;
+    height: 250px !important;
+  }
+  .landmark-info {
+    width: 100% !important;
+  }
+  .landmark-name {
+    font-size: 1.8rem !important;
+    margin-bottom: 10px !important;
+  }
+  .landmark-description {
+    display: none !important;
+  }
+  .cartographic-title {
+    font-size: 2.2rem !important;
+  }
+  .anthology-title {
+    font-size: 2.5rem !important;
+  }
+  .day-container {
+    margin-bottom: 120px !important;
+  }
+  .day-header {
+    margin-bottom: 40px !important;
+    padding-bottom: 20px !important;
+    align-items: center !important;
+  }
+  .day-number {
+    font-size: 5rem !important;
+  }
+  .day-theme-title {
+    font-size: 1.8rem !important;
+  }
+  .day-schedule-grid {
+    gap: 20px !important;
+  }
+  .schedule-slot-card {
+    grid-column: 1 / 13 !important;
+    margin-bottom: 40px !important;
+    padding: 24px !important;
+    border-radius: 20px !important;
+  }
+  .slot-activity-title {
+    font-size: 2rem !important;
+  }
+  .blueprint-section {
+    padding: 40px 20px !important;
+    border-radius: 40px !important;
+  }
+  .blueprint-title {
+    font-size: 2.5rem !important;
+    margin-bottom: 40px !important;
+  }
+  .blueprint-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    margin-bottom: 40px !important;
+  }
+  .blueprint-card {
+    grid-column: 1 / -1 !important;
+    padding: 30px 20px !important;
+    border-radius: 20px !important;
+  }
+  .blueprint-value {
+    font-size: 2rem !important;
+  }
+  .rearchitect-btn {
+    padding: 20px 40px !important;
+    font-size: 1rem !important;
+    letter-spacing: 4px !important;
+  }
+}
+
+/* About Page */
+@media (max-width: 1024px) {
+  .about-hero-title {
+    font-size: 14vw !important;
+  }
+  .about-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    padding: 100px 40px !important;
+    gap: 30px !important;
+  }
+  .about-col-img-1, .about-col-text-1, .about-col-img-2, .about-col-img-3, .about-img-4, .about-img-5, .about-img-6, .about-center-text, .about-cta-wrapper {
+    grid-column: span 2 !important;
+    margin-top: 0 !important;
+  }
+  .about-full-title {
+    grid-column: span 2 !important;
+    margin: 80px 0 !important;
+  }
+  .about-full-title h3 {
+    font-size: 8vw !important;
+  }
+  .about-grid-item {
+    grid-column: span 1 !important;
+    height: 300px !important;
+    margin-top: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    padding: 60px 15px !important;
+    gap: 20px !important;
+  }
+  .about-hero-title {
+    font-size: 18vw !important;
+    letter-spacing: -2px !important;
+  }
+  .about-col-img-1, .about-col-text-1, .about-col-img-2, .about-col-img-3, .about-img-4, .about-img-5, .about-img-6, .about-center-text, .about-grid-item, .about-cta-wrapper, .about-full-title {
+    grid-column: 1 / -1 !important;
+    margin-top: 0 !important;
+  }
+  .about-col-text-1 h2 {
+    font-size: 2.2rem !important;
+  }
+  .about-col-text-1 p {
+    font-size: 1.1rem !important;
+  }
+  .about-full-title {
+    margin: 40px 0 !important;
+  }
+  .about-img-4, .about-img-5, .about-img-6 {
+    height: 350px !important;
+  }
+  .about-center-text p {
+    font-size: 1.2rem !important;
+  }
+  /* Grid image spread */
+  .about-grid-item {
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important;
+  }
+  .about-cta-wrapper {
+    margin-top: 100px !important;
+  }
+  .about-cta-wrapper h2 {
+    font-size: 3rem !important;
+  }
+  .about-cta-btn {
+    padding: 18px 40px !important;
+    font-size: 1rem !important;
+  }
+}

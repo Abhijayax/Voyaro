@@ -3,7 +3,10 @@ const router = express.Router();
 const Anthropic = require('@anthropic-ai/sdk');
 const shimlaData = require('../data/shimla.json');
 const rag = require('../services/ragService');
-const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+const client = new Anthropic({
+  apiKey: process.env.ANTHROPIC_API_KEY,
+  timeout: 120000 // 120 seconds timeout
+});
 const lastRequest = {};
 function rateLimiter(req, res, next) {
   const ip = req.ip;
