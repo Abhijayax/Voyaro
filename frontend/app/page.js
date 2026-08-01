@@ -291,6 +291,23 @@ export default function Home() {
               </div>
             </div>
 
+            {error && (
+              <div style={{ 
+                gridColumn: '1 / -1', 
+                background: 'rgba(255, 77, 77, 0.1)', 
+                border: '1px solid #ff4d4d', 
+                color: '#ff4d4d', 
+                padding: '20px', 
+                borderRadius: '8px', 
+                marginTop: '30px', 
+                textAlign: 'center', 
+                fontSize: '1.1rem',
+                fontWeight: 600
+              }}>
+                ⚠️ {error}
+              </div>
+            )}
+
             <button type="submit" className="form-submit-btn" disabled={loading} style={{ 
               gridColumn: '1 / -1', 
               padding: '30px', 
