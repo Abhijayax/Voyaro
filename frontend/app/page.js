@@ -59,9 +59,8 @@ export default function Home() {
     setError(null);
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
       const response = await axios.post(
-        `${apiUrl}/api/itinerary/generate`,
+        '/api/itinerary/generate',
         formData
       );
       setItineraries(response.data.itineraries);
