@@ -13,14 +13,26 @@ export default function MapContent({ day, spots }) {
   if (!day?.schedule?.length) return <div style={{ padding: '20px', background: '#f0f0f0', borderRadius: '8px' }}>No spots for this day</div>;
 
   const coords = day.schedule.map(s => {
-    const spot = spots?.find(sp =>
-      s.activity.toLowerCase().includes(sp.name.toLowerCase()) ||
-      sp.name.toLowerCase().includes(s.activity.toLowerCase())
-    );
-  
+    const actLower = (s.activity || '').toLowerCase();
+    
+    // 1. Direct substring match
+    let spot = spots?.find(sp => {
+      const nameLower = sp.name.toLowerCase();
+      return actLower.includes(nameLower) || nameLower.includes(actLower);
+    });
+
+    // 2. Token overlap match fallback if direct match fails
+    if (!spot && spots) {
+      const actWords = actLower.split(/\s+/).filter(w => w.length > 3);
+      spot = spots.find(sp => {
+        const nameWords = sp.name.toLowerCase().split(/\s+/).filter(w => w.length > 3);
+        return actWords.some(aw => nameWords.some(nw => aw.includes(nw) || nw.includes(aw)));
+      });
+    }
+
     console.log("ACTIVITY:", s.activity);
     console.log("MATCHED:", spot?.name);
-  
+
     return spot ? [spot.lat, spot.lng] : null;
   }).filter(Boolean);
 

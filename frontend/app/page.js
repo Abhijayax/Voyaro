@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './page.module.css';
 import Map from './components/Map';
-import shimlaData from '../../backend/data/shimla.json';
+import shimlaData from './data/shimla.json';
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -59,8 +59,9 @@ export default function Home() {
     setError(null);
 
     try {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/itinerary/generate`,
+        `${apiUrl}/api/itinerary/generate`,
         formData
       );
       setItineraries(response.data.itineraries);

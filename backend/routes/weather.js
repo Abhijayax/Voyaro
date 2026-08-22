@@ -22,6 +22,7 @@ router.get('/shimla', async (req, res) => {
     });
 
   } catch (err) {
+    console.error('Weather fetch error:', err.response?.data || err.message);
     res.status(500).json({
       error: 'Weather fetch failed'
     });

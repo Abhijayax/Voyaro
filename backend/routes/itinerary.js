@@ -29,21 +29,19 @@ router.post('/generate', rateLimiter, async (req, res) => {
     { name: 'Cultural & Heritage', focus: 'temples, history, photography' },
     { name: 'Relaxed & Budget', focus: 'budget, easy walks, cafes' }
   ];
-  const itineraries = [];
-  for (const theme of themes) {
+  try {
+    const itineraries = await Promise.all(
+      themes.map(async (theme) => {
+        const retrieved = rag.retrieveRelevant(
+          interests.join(' ') + ' ' + theme.focus
+        );
+        console.log('RETRIEVED:', retrieved.map(x => x.name));
+        const ragContext = rag.buildContext(retrieved);
+        const allAttractions = shimlaData.spots
+          .map(s => `${s.name} (${s.category})`)
+          .join('\n');
 
-    const retrieved = rag.retrieveRelevant(
-      interests.join(' ') + ' ' + theme.focus
-    );
-    console.log(
-        'RETRIEVED:',
-        retrieved.map(x => x.name)
-      );
-    const ragContext = rag.buildContext(retrieved);
-    const allAttractions = shimlaData.spots
-    .map(s => `${s.name} (${s.category})`)
-    .join('\n');
-    const userPrompt = `
+        const userPrompt = `
   You are a local Shimla travel expert.
   
  Create a ${days}-day itinerary.
@@ -271,42 +269,46 @@ The response must start with { and end with }.
   "seasonal_note": "Maximum 30 words."
 }
   `;
-  
-    try {
-      const message = await client.messages.create({
-        model: 'claude-haiku-4-5-20251001',
-        max_tokens: 6000,
-        messages: [{ role: 'user', content: userPrompt }]
-      });
-  
-      const rawText = message.content[0].text;
 
-const jsonBlock = rawText.match(
-  /```json\s*([\s\S]*?)\s*```/
-);
+        const message = await client.messages.create({
+          model: 'claude-haiku-4-5-20251001',
+          max_tokens: 6000,
+          messages: [{ role: 'user', content: userPrompt }]
+        });
 
-if (!jsonBlock) {
-  throw new Error('No JSON block found');
-}
+        const rawText = message.content[0].text;
+        let jsonString = rawText;
 
-const itinerary = JSON.parse(jsonBlock[1]);
+        const jsonBlock = rawText.match(/```json\s*([\s\S]*?)\s*```/);
+        if (jsonBlock) {
+          jsonString = jsonBlock[1];
+        } else {
+          const start = rawText.indexOf('{');
+          const end = rawText.lastIndexOf('}');
+          if (start !== -1 && end !== -1) {
+            jsonString = rawText.substring(start, end + 1);
+          }
+        }
 
-const activities = itinerary.days.flatMap(day =>
-  day.schedule.map(item => item.activity)
-);
+        const itinerary = JSON.parse(jsonString);
 
-const uniqueActivities = new Set(activities);
-      
-if (activities.length !== uniqueActivities.size) {
-  console.warn("Duplicate attractions detected. Returning itinerary anyway.");
-}
-      itineraries.push(itinerary);
-  
-    } catch (err) {
-      console.error('Error:', err.message);
-      return res.status(500).json({ error: 'Generation failed' });
-    }
+        const activities = itinerary.days.flatMap(day =>
+          day.schedule.map(item => item.activity)
+        );
+        const uniqueActivities = new Set(activities);
+
+        if (activities.length !== uniqueActivities.size) {
+          console.warn("Duplicate attractions detected. Returning itinerary anyway.");
+        }
+
+        return itinerary;
+      })
+    );
+
+    res.json({ success: true, itineraries });
+  } catch (err) {
+    console.error('Error:', err.message);
+    return res.status(500).json({ error: 'Generation failed' });
   }
-  res.json({ success: true, itineraries });
 });
 module.exports = router;
